@@ -1,0 +1,39 @@
+# Gradle and Java output
+.gradle/
+build/
+out/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local H2 storage and diagnostics
+/data/
+*.mv.db
+*.h2.db
+*.trace.db
+*.lock.db
+*.temp.db
+*.newFile
+*.oldFile
+*.log
+hs_err_pid*
+replay_pid*
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.local.properties
+*.pem
+*.key
+*.p12
+*.jks
+
+# Editors and operating systems
+.idea/
+*.iml
+.vscode/
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
