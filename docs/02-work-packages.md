@@ -133,29 +133,27 @@ All required checks pass for the delivered commit and the acceptance verificatio
 
 Criterion-to-evidence table, exact commit, referenced/rerun commands, HTTP/migration results, issue dispositions and actual platform limitations.
 
-## WP-05 — Prepare the GitHub review handoff and Toolkit traceability
+## WP-05 — Author manual test cases for the case statistics change
 
 ### Description
 
-Deliver the verified change as a GitHub PR against main and connect it to the parent case and work packages. Ensure documentation explains the new endpoint and its behavior. This package delivers a review handoff; human approval and customer acceptance remain parent-case gates.
+Author a set of manual, black-box test cases in the Testcases list covering the full observable behavior of the case statistics change (the new period-based statistics and its validation, filtering, grouping, exclusion and error handling). The test cases are written in customer-facing language and assume the accompanying frontend; they are prepared as a quality-assurance artifact for the customer to run later and are not executed as part of this package.
 
 ### Dependencies
 
-WP-03 and WP-04; approved access to push the feature branch, create a PR and write results in Toolkit.
+WP-03 (the delivered statistics endpoint) and the WP-01 contract as the source of expected behavior.
 
 ### Acceptance criteria
 
-1. Documentation describes query parameters, boundaries, current-status counting, cancellation exclusion, errors and an example response.
-2. Inspect the final diff and repository status; include only intended changes and no credentials, local databases or generated output. Record the verified feature commit.
-3. Push the intended feature branch and create one PR against main. Check for an existing PR before creating a duplicate. Do not merge or push changes directly to main.
-4. The PR describes the problem, resulting behavior, migration, tests, HTTP evidence and limitations, with links to the actual Toolkit items where appropriate.
-5. Read the PR back and confirm its URL, base/head and current head commit match the intended verified delivery.
-6. Save the PR URL, commit and verification summary to Toolkit and reread to confirm persistence. Report missing integration access honestly without claiming delivery succeeded.
+1. Test cases are created in the Testcases list and linked to the parent case, covering: full-period counts, single-day counts, an empty period, cancelled-case exclusion, creation-time (not modification-time) inclusion, and rejection of a nonsensical period.
+2. Each test case states a goal, customer-facing steps, and an expected result, and assumes the frontend rather than a raw API client.
+3. The test cases are ready for a customer to run without further authoring and do not require a specific tool such as Postman.
+4. No test case is executed as part of this package; they are prepared-for-QA, not run.
 
 ### Definition of Done
 
-The verified PR is open and ready for human review; Toolkit traceability is confirmed. Record the outcome as ready for review using supported Toolkit fields/states. Completion of this handoff package does not mean code approval, merge or parent-case acceptance. If PR creation or Toolkit writeback is blocked, retain an incomplete/blocked outcome and supply the prepared handoff text.
+The test cases are saved to the Testcases list and reread to confirm persistence, linked to the parent case, and scoped to the whole change. No test case is executed.
 
 ### Expected evidence
 
-PR URL/base/head/commit, final diff-check result, documentation changes, linked acceptance report, verified Toolkit readback and any reviewer assignment actually performed.
+Actual Testcases item IDs, the linked parent case, and the list of authored test cases.
